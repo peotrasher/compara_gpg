@@ -23,7 +23,7 @@ def ingreso_de_strings() -> list:
                     print(
                     f"""
                     | {string} | será omitido, ya existia.
-                    | {string} | == | {elemento} |
+                    (input) | {string} | == (existente) | {elemento} |
                     """
                     )
         if apendar: strings_con_que_comparar.append(string)
