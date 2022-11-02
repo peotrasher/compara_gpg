@@ -28,7 +28,7 @@ def ingreso_de_strings() -> list:
 
 
 def no_existencia_en_lista(string: str, lista: list, 
-                        formatear: bool) -> bool:
+                            formatear: bool) -> bool:
     """
     Recibe una string, una lista y un valor booleano correspondiente a
     si se quiere o no formatear la string y lista, retorna valor 
