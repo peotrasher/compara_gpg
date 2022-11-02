@@ -15,21 +15,48 @@ def ingreso_de_strings() -> list:
             print("Ocurrio un error! Ingrese datos nuevamente.")
     for i in range(rango_strings_0):
         string = input(f"Compare con ({i + 1}): ")
-        apendar = True
-        for elemento in strings_con_que_comparar:
-            if (formatea_string(string) 
-                    == formatea_string(elemento)):
-                    apendar = False
-                    print(
-                    f"""
-                    | {string} | será omitido, ya existia.
-                    (input) | {string} | == (existente) | {elemento} |
-                    """
-                    )
-        if apendar: strings_con_que_comparar.append(string)
+        if (no_existencia_en_lista(string, 
+                                    strings_con_que_comparar, True)):
+            strings_con_que_comparar.append(string)
+        
     for i in range(rango_strings_1):
-        strings_a_comparar_con.append(input(f"A comparar ({i + 1}): "))
+        string = input(f"A comparar ({i + 1}): ")
+        if (no_existencia_en_lista(string, 
+                                    strings_a_comparar_con, False)):
+            strings_a_comparar_con.append(string)
     return strings_con_que_comparar, strings_a_comparar_con
+
+
+def no_existencia_en_lista(string: str, lista: list, 
+                        formatear: bool) -> bool:
+    """
+    Recibe una string, una lista y un valor booleano correspondiente a
+    si se quiere o no formatear la string y lista, retorna valor 
+    booleano que dice si es que es un elemento que no existia (True) o 
+    ya existia (False) en la lista que se ingreso.
+    """
+    for elemento in lista:
+        if formatear:
+            if (formatea_string(string)
+                    == formatea_string(elemento)):
+                print(
+                f"""
+                | {string} | será omitido, ya existia.
+                (input) | {string} | == (existente) | {elemento} |
+                """
+                )
+                return False
+        else:
+            if (string 
+                    == elemento):
+                print(
+                f"""
+                | {string} | será omitido, ya existia.
+                (input) | {string} | == (existente) | {elemento} |
+                """
+                )
+                return False
+    return True
 
 
 def formatea_string(string0: str) -> str:
