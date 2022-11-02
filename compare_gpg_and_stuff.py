@@ -20,7 +20,9 @@ def ingreso_de_strings() -> list:
             if (formatea_string(string) 
                     == formatea_string(elemento)):
                     apendar = False
-                    print(f"| {string} | será omitido, ya existia.")
+                    print(f"""
+                    | {string} | será omitido, ya existia.
+                    | {string} | == | {elemento} |\n""")
         if apendar: strings_con_que_comparar.append(string)
     for i in range(rango_strings_1):
         strings_a_comparar_con.append(input(f"A comparar ({i + 1}): "))
