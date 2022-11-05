@@ -95,11 +95,13 @@ def comparar_string(lista0: list, lista1: list) -> None:
                 coincidencias.append(lista1[j])
             else:
                 no_coincidentes.append(lista1[j])
-        diccionario[f"✅ Coincide con | {lista0[i]} |:\n"] = coincidencias
-        diccionario[f"❎ | {lista0[i]} | no coincide con:\n"] = no_coincidentes
+        diccionario[f"✅ Coincide con | {lista0[i]} |"] = coincidencias
+        diccionario[f"❎ | {lista0[i]} | no coincide con"] = no_coincidentes
     for llave in diccionario:
-        print(f"{llave} -> {diccionario[llave]}")        
-    
+        print(f"{llave}")
+        for valor in diccionario[llave]:
+            print(f"-> {valor}")       
+
 
 def main():
     strings_con_que_comparar, strings_a_comparar_con = ingreso_de_strings()
